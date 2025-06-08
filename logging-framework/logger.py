@@ -16,20 +16,25 @@ log_file_path = os.path.join(logs_folder, f'logs-{date.today()}.txt')
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+# How the logs are going to be formatted
 formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s')
 
+# File handler
 file_handler = logging.FileHandler(log_file_path, encoding='utf-8')
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
 
+# Console handler
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_handler.setFormatter(formatter)
 
+# Make sure there are no duplicates
 if not logger.hasHandlers():
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
+# Note the time when the file was executed
 with open(log_file_path, "a") as logs:
     t = time.localtime()
     current_time = time.strftime("%H:%M:%S", t)
