@@ -15,7 +15,12 @@ if __name__ == "__main__":
 
     # Configure the logger to write in the new logs file
     logger = logging.getLogger(__name__)
-    logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', filename=log_file_path, encoding='utf-8', level=logging.DEBUG)
+    logging.basicConfig(
+        format='%(asctime)s - %(levelname)s: %(message)s',
+        filename=log_file_path,
+        encoding='utf-8',
+        level=logging.DEBUG
+    )
 
     with open(log_file_path, "a") as logs:
         t = time.localtime()
@@ -27,15 +32,17 @@ def log_function_call(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         logger.info(f'Running function \'{func.__name__}\' with arguments {args} and keyword arguments {kwargs}')
-        start_time = time.time()
+        start_time = time.perf_counter()
 
         try:
             return_val = func(*args, **kwargs)
             logger.info(f'Function \'{func.__name__}\' returned {return_val}.')
+            return return_val
         except Exception as err:
-            logger.critical(f'Function \'{func.__name__}\' failed with error message: {err}.')
+            logger.exception(f'Function \'{func.__name__}\' failed with error message: {err}.')
+            raise
         finally:
-            logger.info(f'Function \'{func.__name__}\' finished with {time.time() - start_time}s runtime.')
+            logger.info(f'Function \'{func.__name__}\' finished with {time.perf_counter() - start_time}s runtime.')
 
     return wrapper
 
@@ -54,4 +61,4 @@ def add2(x, y):
     return x + y
 
 add(3,4)
-add2(3)
+add2(3,6)

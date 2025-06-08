@@ -1,16 +1,21 @@
 
---------------- Execution Started at 22:47:17 -----------------
-2025-06-07 22:47:17,357 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
-2025-06-07 22:47:17,447 - INFO: Function 'add' returned 7.
-2025-06-07 22:47:17,447 - INFO: Function 'add' finished with 0.08964276313781738s runtime.
-2025-06-07 22:47:17,447 - INFO: Running function 'add2' with arguments (3,) and keyword arguments {}
-2025-06-07 22:47:17,447 - CRITICAL: Function 'add2' failed with error message: add2() missing 1 required positional argument: 'y'.
-2025-06-07 22:47:17,447 - INFO: Function 'add2' finished with 0.0s runtime.
+--------------- Execution Started at 22:59:49 -----------------
+2025-06-07 22:59:49,108 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-07 22:59:49,210 - INFO: Function 'add' returned 7.
+2025-06-07 22:59:49,210 - INFO: Function 'add' finished with 0.10253049992024899s runtime.
+2025-06-07 22:59:49,211 - INFO: Running function 'add2' with arguments (3,) and keyword arguments {}
+2025-06-07 22:59:49,211 - ERROR: Function 'add2' failed with error message: add2() missing 1 required positional argument: 'y'.
+Traceback (most recent call last):
+  File "c:\Users\realj\OneDrive\Desktop\CodingStuff\learning\advanced-python\logging-framework\logger.py", line 38, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+TypeError: add2() missing 1 required positional argument: 'y'
+2025-06-07 22:59:49,214 - INFO: Function 'add2' finished with 0.003061099909245968s runtime.
 
---------------- Execution Started at 22:47:54 -----------------
-2025-06-07 22:47:54,699 - INFO: Running function 'add' with arguments (3, 4, 5) and keyword arguments {}
-2025-06-07 22:47:54,699 - CRITICAL: Function 'add' failed with error message: add() takes 2 positional arguments but 3 were given.
-2025-06-07 22:47:54,699 - INFO: Function 'add' finished with 0.0s runtime.
-2025-06-07 22:47:54,699 - INFO: Running function 'add2' with arguments (3,) and keyword arguments {}
-2025-06-07 22:47:54,699 - CRITICAL: Function 'add2' failed with error message: add2() missing 1 required positional argument: 'y'.
-2025-06-07 22:47:54,699 - INFO: Function 'add2' finished with 0.0s runtime.
+--------------- Execution Started at 23:00:47 -----------------
+2025-06-07 23:00:47,651 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-07 23:00:47,741 - INFO: Function 'add' returned 7.
+2025-06-07 23:00:47,741 - INFO: Function 'add' finished with 0.09053079993464053s runtime.
+2025-06-07 23:00:47,741 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-07 23:00:47,834 - INFO: Function 'add2' returned 9.
+2025-06-07 23:00:47,834 - INFO: Function 'add2' finished with 0.09217219986021519s runtime.
