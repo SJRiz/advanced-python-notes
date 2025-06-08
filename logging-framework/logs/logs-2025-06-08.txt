@@ -1,0 +1,112 @@
+
+--------------- Execution Started at 00:01:54 -----------------
+2025-06-08 00:01:54,954 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:01:55,021 - INFO: Function 'add' returned 7.
+2025-06-08 00:01:55,021 - INFO: Function 'add' finished with 0.0673737998586148s runtime.
+2025-06-08 00:01:55,021 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:01:55,088 - INFO: Function 'add2' returned 9.
+2025-06-08 00:01:55,088 - INFO: Function 'add2' finished with 0.06704899994656444s runtime.
+
+--------------- Execution Started at 00:02:31 -----------------
+
+--------------- Execution Started at 00:02:34 -----------------
+
+--------------- Execution Started at 00:02:35 -----------------
+
+--------------- Execution Started at 00:03:00 -----------------
+
+--------------- Execution Started at 00:03:03 -----------------
+2025-06-08 00:03:03,431 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:03:03,499 - INFO: Function 'add' returned 7.
+2025-06-08 00:03:03,499 - INFO: Function 'add' finished with 0.06695410003885627s runtime.
+2025-06-08 00:03:03,499 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:03:03,565 - INFO: Function 'add2' returned 9.
+2025-06-08 00:03:03,565 - INFO: Function 'add2' finished with 0.06684220000170171s runtime.
+
+--------------- Execution Started at 00:03:04 -----------------
+2025-06-08 00:03:04,081 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:03:04,150 - INFO: Function 'add' returned 7.
+2025-06-08 00:03:04,150 - INFO: Function 'add' finished with 0.06772489985451102s runtime.
+2025-06-08 00:03:04,150 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:03:04,218 - INFO: Function 'add2' returned 9.
+2025-06-08 00:03:04,218 - INFO: Function 'add2' finished with 0.06797059997916222s runtime.
+
+--------------- Execution Started at 00:03:17 -----------------
+2025-06-08 00:03:17,395 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:03:17,463 - INFO: Function 'add' returned 7.
+2025-06-08 00:03:17,463 - INFO: Function 'add' finished with 0.06811450002714992s runtime.
+2025-06-08 00:03:17,463 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:03:17,531 - INFO: Function 'add2' returned 9.
+2025-06-08 00:03:17,531 - INFO: Function 'add2' finished with 0.06833790009841323s runtime.
+
+--------------- Execution Started at 00:13:39 -----------------
+2025-06-08 00:13:39,935 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:13:40,002 - INFO: Function 'add' returned 7.
+2025-06-08 00:13:40,003 - INFO: Function 'add' finished with 0.06792389997281134s runtime.
+2025-06-08 00:13:40,003 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:13:40,071 - INFO: Function 'add2' returned 9.
+2025-06-08 00:13:40,071 - INFO: Function 'add2' finished with 0.06746249995194376s runtime.
+
+--------------- Execution Started at 00:13:48 -----------------
+2025-06-08 00:13:48,966 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:13:49,034 - INFO: Function 'add' returned 7.
+2025-06-08 00:13:49,034 - INFO: Function 'add' finished with 0.06724000000394881s runtime.
+2025-06-08 00:13:49,034 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:13:49,112 - INFO: Function 'add2' returned 9.
+2025-06-08 00:13:49,112 - INFO: Function 'add2' finished with 0.07863580016419291s runtime.
+
+--------------- Execution Started at 00:14:41 -----------------
+2025-06-08 00:14:41,433 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:14:41,501 - INFO: Function 'add' returned 7.
+2025-06-08 00:14:41,501 - INFO: Function 'add' finished with 0.06831780006177723s runtime.
+2025-06-08 00:14:41,501 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:14:41,569 - INFO: Function 'add2' returned 9.
+2025-06-08 00:14:41,569 - INFO: Function 'add2' finished with 0.06787390005774796s runtime.
+
+--------------- Execution Started at 00:19:19 -----------------
+
+--------------- Execution Started at 00:19:21 -----------------
+
+--------------- Execution Started at 00:19:38 -----------------
+2025-06-08 00:19:38,472 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:19:38,541 - INFO: Function 'add' returned 7.
+2025-06-08 00:19:38,541 - INFO: Function 'add' finished with 0.06818059994839132s runtime.
+2025-06-08 00:19:38,541 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:19:38,609 - INFO: Function 'add2' returned 9.
+2025-06-08 00:19:38,609 - INFO: Function 'add2' finished with 0.06832059985026717s runtime.
+
+--------------- Execution Started at 00:19:39 -----------------
+2025-06-08 00:19:39,891 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:19:39,961 - INFO: Function 'add' returned 7.
+2025-06-08 00:19:39,962 - INFO: Function 'add' finished with 0.07055129995569587s runtime.
+2025-06-08 00:19:39,962 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:19:40,033 - INFO: Function 'add2' returned 9.
+2025-06-08 00:19:40,033 - INFO: Function 'add2' finished with 0.07073340006172657s runtime.
+
+--------------- Execution Started at 00:20:04 -----------------
+2025-06-08 00:20:04,794 - INFO: Running function 'add' with arguments (3, 4, 5) and keyword arguments {}
+2025-06-08 00:20:04,794 - ERROR: Function 'add' failed with error message: add() takes 2 positional arguments but 3 were given.
+Traceback (most recent call last):
+  File "c:\Users\realj\OneDrive\Desktop\CodingStuff\learning\advanced-python\logging-framework\logger.py", line 46, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+TypeError: add() takes 2 positional arguments but 3 were given
+2025-06-08 00:20:04,796 - INFO: Function 'add' finished with 0.0022883000783622265s runtime.
+
+--------------- Execution Started at 00:22:51 -----------------
+
+--------------- Execution Started at 00:22:58 -----------------
+2025-06-08 00:22:58,233 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:22:58,300 - INFO: Function 'add' returned 7.
+2025-06-08 00:22:58,301 - INFO: Function 'add' finished with 0.06781669985502958s runtime.
+2025-06-08 00:22:58,301 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:22:58,369 - INFO: Function 'add2' returned 9.
+2025-06-08 00:22:58,369 - INFO: Function 'add2' finished with 0.06744899996556342s runtime.
+
+--------------- Execution Started at 00:23:00 -----------------
+2025-06-08 00:23:00,247 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-08 00:23:00,314 - INFO: Function 'add' returned 7.
+2025-06-08 00:23:00,314 - INFO: Function 'add' finished with 0.06739529990591109s runtime.
+2025-06-08 00:23:00,315 - INFO: Running function 'add2' with arguments (3, 6) and keyword arguments {}
+2025-06-08 00:23:00,382 - INFO: Function 'add2' returned 9.
+2025-06-08 00:23:00,382 - INFO: Function 'add2' finished with 0.06742660002782941s runtime.

@@ -4,28 +4,36 @@ import time
 from functools import wraps
 from datetime import date
 
-if __name__ == "__main__":
+# Gets the path to the logs folder
+script_dir = os.path.dirname(os.path.abspath(__file__))
+logs_folder = os.path.join(script_dir, "logs")
+os.makedirs(logs_folder, exist_ok=True)
 
-    # Gets the path to the logs folder
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    logs_folder = os.path.join(script_dir, "logs")
+# Create a new txt file path in the folder
+log_file_path = os.path.join(logs_folder, f'logs-{date.today()}.txt')
 
-    # Create a new txt file path in the folder
-    log_file_path = os.path.join(logs_folder, f'logs-{date.today()}.txt')
+# Configure the logger to write in the new logs file, and the console
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
-    # Configure the logger to write in the new logs file
-    logger = logging.getLogger(__name__)
-    logging.basicConfig(
-        format='%(asctime)s - %(levelname)s: %(message)s',
-        filename=log_file_path,
-        encoding='utf-8',
-        level=logging.DEBUG
-    )
+formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s')
 
-    with open(log_file_path, "a") as logs:
-        t = time.localtime()
-        current_time = time.strftime("%H:%M:%S", t)
-        logs.write(f'\n--------------- Execution Started at {current_time} -----------------\n')
+file_handler = logging.FileHandler(log_file_path, encoding='utf-8')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(formatter)
+
+if not logger.hasHandlers():
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+with open(log_file_path, "a") as logs:
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    logs.write(f'\n--------------- Execution Started at {current_time} -----------------\n')
 
 # Decorator to log the function call
 def log_function_call(func):
@@ -45,20 +53,3 @@ def log_function_call(func):
             logger.info(f'Function \'{func.__name__}\' finished with {time.perf_counter() - start_time}s runtime.')
 
     return wrapper
-
-########################################################################################################
-
-@log_function_call
-def add(x, y):
-    for _ in range(10000000):
-        pass
-    return x + y
-
-@log_function_call
-def add2(x, y):
-    for i in range(10000000):
-        pass
-    return x + y
-
-add(3,4)
-add2(3,6)
