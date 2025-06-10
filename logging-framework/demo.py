@@ -13,4 +13,4 @@ def add2(x, y):
     return x + y
 
 add(3,4)
-add2(3,6)
+add2(3,6,7)

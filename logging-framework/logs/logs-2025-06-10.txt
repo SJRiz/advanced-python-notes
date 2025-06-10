@@ -1,0 +1,26 @@
+
+--------------- Execution Started at 00:52:50 -----------------
+2025-06-10 00:52:50,084 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-10 00:52:50,151 - INFO: Function 'add' returned 7.
+2025-06-10 00:52:50,152 - INFO: Function 'add' finished with 0.06759399990551174s runtime.
+2025-06-10 00:52:50,152 - INFO: Running function 'add2' with arguments (3, 6, 7) and keyword arguments {}
+2025-06-10 00:52:50,152 - ERROR: Function 'add2' failed with error message: add2() takes 2 positional arguments but 3 were given.
+Traceback (most recent call last):
+  File "c:\Users\realj\OneDrive\Desktop\CodingStuff\learning\advanced-python\logging-framework\logger.py", line 51, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+TypeError: add2() takes 2 positional arguments but 3 were given
+2025-06-10 00:52:50,155 - INFO: Function 'add2' finished with 0.0030926999170333147s runtime.
+
+--------------- Execution Started at 00:53:51 -----------------
+2025-06-10 00:53:51,774 - INFO: Running function 'add' with arguments (3, 4) and keyword arguments {}
+2025-06-10 00:53:51,843 - INFO: Function 'add' returned 7.
+2025-06-10 00:53:51,843 - INFO: Function 'add' finished with 0.0684291000943631s runtime.
+2025-06-10 00:53:51,843 - INFO: Running function 'add2' with arguments (3, 6, 7) and keyword arguments {}
+2025-06-10 00:53:51,843 - ERROR: Function 'add2' failed with error message: add2() takes 2 positional arguments but 3 were given.
+Traceback (most recent call last):
+  File "c:\Users\realj\OneDrive\Desktop\CodingStuff\learning\advanced-python\logging-framework\logger.py", line 51, in wrapper
+    return_val = func(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^
+TypeError: add2() takes 2 positional arguments but 3 were given
+2025-06-10 00:53:51,846 - INFO: Function 'add2' finished with 0.002405300037935376s runtime.
