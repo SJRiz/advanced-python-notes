@@ -1,6 +1,7 @@
 import requests
 import time
 from bs4 import BeautifulSoup
+from functools import lru_cache
 
 def get_html(link, attempts):
     """Function that gets the HTML of a response"""
@@ -11,9 +12,9 @@ def get_html(link, attempts):
     except Exception as err:
         print(f'Error fetching {link}: {err}')
         if attempts > 0:
-            attempts - 1
+            print(f'Retrying... {attempts} attempts left')
             time.sleep(2)
-            get_html(link, attempts)
+            return get_html(link, attempts - 1)
         else:
             return None
     
@@ -26,8 +27,12 @@ def parse_html(html):
             "link": item["href"]
         }
 
-def scrape(link, attempts):
+@lru_cache(maxsize=120)
+def scrape(link):
     """Function that scrapes data from a link by using get_html and parse_html"""
-    html = get_html(link, attempts)
+    html = get_html(link, 3)
     if html:
         return list(parse_html(html))
+    
+data = scrape("https://news.ycombinator.com/")
+print(data)
