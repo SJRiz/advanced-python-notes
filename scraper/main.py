@@ -2,7 +2,7 @@ import requests
 import time
 from bs4 import BeautifulSoup
 
-def get_html(link):
+def get_html(link, attempts):
     """Function that gets the HTML of a response"""
     try:
         response = requests.get(link, timeout=5)
@@ -10,7 +10,12 @@ def get_html(link):
         return response.text
     except Exception as err:
         print(f'Error fetching {link}: {err}')
-        return None
+        if attempts > 0:
+            attempts - 1
+            time.sleep(2)
+            get_html(link, attempts)
+        else:
+            return None
     
 def parse_html(html):
     """Function that parses the HTML and looks for titles, along with their links"""
@@ -21,8 +26,8 @@ def parse_html(html):
             "link": item["href"]
         }
 
-def scrape(link):
+def scrape(link, attempts):
     """Function that scrapes data from a link by using get_html and parse_html"""
-    html = get_html(link)
+    html = get_html(link, attempts)
     if html:
         return list(parse_html(html))
