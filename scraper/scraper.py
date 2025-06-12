@@ -20,7 +20,8 @@ def get_html(link, attempts):
             return get_html(link, attempts - 1)
         else:
             return None
-    
+
+@lru_cache(maxsize=120) 
 def parse_html(html):
     """Function that parses the HTML and looks for titles, along with their links"""
 
@@ -33,7 +34,6 @@ def parse_html(html):
             "link": item["href"]
         }
 
-@lru_cache(maxsize=120)
 def scrape(link, attempts):
     """Function that scrapes data from a link by using get_html and parse_html"""
 
@@ -51,6 +51,7 @@ def main():
 
     with open("results.json", "w") as file:
         json.dump(data, file, indent=2)
+        print("Scrape complete")
 
 if __name__ == '__main__':
     main()
