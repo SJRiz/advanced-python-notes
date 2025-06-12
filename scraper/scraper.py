@@ -2,20 +2,22 @@ import requests
 import time
 import argparse
 import json
+from tqdm import tqdm
 from bs4 import BeautifulSoup
 
 def get_html(link, attempts):
     """Function that gets the HTML of a response"""
 
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+    }
+
     try:
-        headers = {
-            "User-Agent": "Mozilla/5.0 (compatible; MyScraper/1.0)"
-        }
         response = requests.get(link, headers=headers, timeout=5)
         response.raise_for_status()
         return response.text
     except Exception as err:
-        print(f'Error fetching {link}: {err}')
+        #print(f'Error fetching {link}: {err}')
         if attempts > 0:
             print(f'Retrying... {attempts} attempts left')
             time.sleep(1)
@@ -23,31 +25,32 @@ def get_html(link, attempts):
         else:
             return None
 
-def parse_html(html, depth):
-    """Function that parses the HTML and looks for titles, along with their links"""
-
+def parse_html(html, depth, visited):
     soup = BeautifulSoup(html, "html.parser")
 
-    # Look for the anchor tag within titleline
-    for item in soup.select('.titleline > a'):
-        # Look for more info within the internal link through recursion
-        internal = scrape(item['href'], depth - 1, 3)
-        internal_data = list(internal) if internal else None
+    for item in tqdm(soup.find_all('a', href=True), desc="Parsing titles", leave=False):
+        href = item["href"]
+        if href in visited:
+            continue
+        visited.add(href)
+
+        internal = scrape(href, 0, depth - 1, visited)
+        internal_data = list(internal) if internal else ""
         yield {
             "title": item.text.strip(),
-            "link": item["href"],
-            "internal": internal_data
+            "link": href,
+            "internalInfo": internal_data
         }
 
-def scrape(link, attempts, depth):
+def scrape(link, attempts, depth, visited):
     """Function that scrapes data from a link by using get_html and parse_html"""
     if depth > 0:
         html = get_html(link, attempts)
         if html:
-            return list(parse_html(html, depth))
+            return list(parse_html(html, depth, visited))
     else:
         return None
-    
+
 def main():
     parser = argparse.ArgumentParser(description="Scrape a news site")
     parser.add_argument('--url', required=True, help="URL to scrape")
@@ -55,10 +58,10 @@ def main():
     parser.add_argument('--depth', type=int, default=2, help="How many internal links to crawl through")
 
     args = parser.parse_args()
-    data = scrape(args.url, args.attempts, args.depth)
+    data = scrape(args.url, args.attempts, args.depth, set())
 
-    with open("results.json", "w") as file:
-        json.dump(data, file, indent=2)
+    with open("results.json", "w", encoding='utf-8') as file:
+        json.dump(data, file, indent=2, ensure_ascii=False)
         print("Scrape complete")
 
 if __name__ == '__main__':
