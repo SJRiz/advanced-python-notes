@@ -6,8 +6,19 @@ from tqdm import tqdm
 from bs4 import BeautifulSoup
 
 def get_html(link, attempts):
-    """Function that gets the HTML of a response"""
+    """
+    Function that gets the HTML of a response.
 
+    Args:
+        link (string): link to a website
+        attempts (int): How many times to try requesting
+    
+    Returns:
+        HTML structure of the website (string)
+    
+    """
+
+    # Header to not get detected by anti-bots
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
     }
@@ -26,6 +37,19 @@ def get_html(link, attempts):
             return None
 
 def parse_html(html, depth, visited):
+    """
+    Generator that parses the HTML structure to look for any links.
+    Also parses internal links up to depth
+
+    Args:
+        html (string): HTML structure of a website
+        depth (int): How many layers of links to crawl through
+        visited (set): A set of all visited links
+
+    Yields:
+        Dict containing a title, link, internalInfo
+    """
+
     soup = BeautifulSoup(html, "html.parser")
 
     for item in tqdm(soup.find_all('a', href=True), desc="Parsing titles", leave=False):
@@ -46,7 +70,19 @@ def parse_html(html, depth, visited):
         }
 
 def scrape(link, attempts, depth, visited):
-    """Function that scrapes data from a link by using get_html and parse_html"""
+    """
+    Function that scrapes data from a link by using get_html and parse_html.
+
+    Args:
+        link (string): link to a website
+        attempts (int): How many times to try requesting
+        depth (int): How many layers of links to crawl through
+        visited (set): A set of all visited links
+
+    Returns:
+        List of all links found within a website, as well as internal links
+    """
+
     if depth > 0:
         html = get_html(link, attempts)
         if html:
@@ -55,6 +91,8 @@ def scrape(link, attempts, depth, visited):
         return None
 
 def main():
+
+    # Set up the CLI
     parser = argparse.ArgumentParser(description="Scrape a news site")
     parser.add_argument('--url', required=True, help="URL to scrape")
     parser.add_argument('--attempts', type=int, default=3, help="Number of retries")
@@ -63,6 +101,7 @@ def main():
     args = parser.parse_args()
     data = scrape(args.url, args.attempts, args.depth, set())
 
+    # Dump the results in a results.json file
     with open("results.json", "w", encoding='utf-8') as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
         print("Scrape complete")
