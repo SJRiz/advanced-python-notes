@@ -17,8 +17,8 @@ def get_html(link, attempts):
         response.raise_for_status()
         return response.text
     except Exception as err:
-        #print(f'Error fetching {link}: {err}')
         if attempts > 0:
+            print(f'Error fetching {link}: {err}')
             print(f'Retrying... {attempts} attempts left')
             time.sleep(1)
             return get_html(link, attempts - 1)
@@ -30,10 +30,13 @@ def parse_html(html, depth, visited):
 
     for item in tqdm(soup.find_all('a', href=True), desc="Parsing titles", leave=False):
         href = item["href"]
+
+        # Ignore links already scraped
         if href in visited:
             continue
         visited.add(href)
 
+        # Scrape internal links recursively up to --depth
         internal = scrape(href, 0, depth - 1, visited)
         internal_data = list(internal) if internal else ""
         yield {
